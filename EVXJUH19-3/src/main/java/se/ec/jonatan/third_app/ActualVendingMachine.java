@@ -14,9 +14,9 @@ public class ActualVendingMachine implements VendingMachine {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		insertedMoney = new int[insertableValues.length];
 		change = 0;
-		soda = new Soda("Coke", "20");
-		chips = new Chips("OLW", "60");
-		chocolate = new Chocolate("Marabou", "140");
+		soda = new FoodItem("Coke", "20");
+		chips = new FoodItem("OLW", "60");
+		chocolate = new FoodItem("Marabou", "140");
 		test = new Product[3];
 		test[0] = soda;
 		test[1] = chips;
@@ -25,7 +25,7 @@ public class ActualVendingMachine implements VendingMachine {
 	}
 	
 	public void addCurrency(int amount) {
-		change = amount;
+		change += amount;
 	}
 
 	public int getBalance() {
