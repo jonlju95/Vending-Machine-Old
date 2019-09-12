@@ -1,8 +1,7 @@
 package se.ec.jonatan.third_app;
 
 public class ActualVendingMachine implements VendingMachine {
-	private int[] insertableValues;
-	private int[] insertedMoney;
+	protected int[] insertableValues;
 	private int change;
 	private Product soda;
 	private Product chips;
@@ -12,7 +11,6 @@ public class ActualVendingMachine implements VendingMachine {
 	
 	public ActualVendingMachine() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
-		insertedMoney = new int[insertableValues.length];
 		change = 0;
 		soda = new FoodItem("Coke", "20");
 		chips = new FoodItem("OLW", "60");

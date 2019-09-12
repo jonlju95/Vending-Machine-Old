@@ -1,6 +1,6 @@
 package se.ec.jonatan.third_app;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class VendingMachineMain {
 	public static void main(String[] args) {
@@ -14,8 +14,22 @@ public class VendingMachineMain {
 			option = Integer.parseInt(in.nextLine());
 			switch (option) {
 				case 1: 
+					System.out.println("Add one of the following values: " + Arrays.toString(test.insertableValues));
 					System.out.print("Amount: ");
-					test.addCurrency(Integer.parseInt(in.nextLine()));
+					int insertedValue = Integer.parseInt(in.nextLine());
+					boolean contains = false;
+					for(int i : test.insertableValues) {
+			            if(i==insertedValue) {
+			            	contains = true;
+			            }
+			        }
+					if(contains) {
+						test.addCurrency(insertedValue);
+					}
+					else {
+						System.out.println("Can only add the mentioned values!");
+					}
+					
 					System.out.println("\n----- " + test.getBalance() + " kr inserted -----\n");
 					break;
 				case 2:
