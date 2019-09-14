@@ -16,6 +16,6 @@ public abstract class Product {
 	}
 	
 	public String use() {
-		return null;
+		return name + " used";
 	}
 }

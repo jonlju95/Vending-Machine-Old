@@ -1,13 +1,16 @@
 package se.ec.jonatan.third_app;
 
+import java.util.*;
+
 public class ActualVendingMachine implements VendingMachine {
 	protected int[] insertableValues;
 	private int change;
 	private Product soda;
 	private Product chips;
 	private Product chocolate;
-	private Product[] test;
+	protected Product[] products;
 	protected boolean keepBuying;
+	protected ArrayList<Product> boughtProducts;
 	
 	public ActualVendingMachine() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
@@ -15,15 +18,28 @@ public class ActualVendingMachine implements VendingMachine {
 		soda = new FoodItem("Coke", "20");
 		chips = new FoodItem("OLW", "60");
 		chocolate = new FoodItem("Marabou", "140");
-		test = new Product[3];
-		test[0] = soda;
-		test[1] = chips;
-		test[2] = chocolate;
+		products = new Product[3];
+		products[0] = soda;
+		products[1] = chips;
+		products[2] = chocolate;
 		keepBuying = true;
+		boughtProducts = new ArrayList<Product>();
 	}
 	
 	public void addCurrency(int amount) {
-		change += amount;
+		boolean contains = false;
+		for(int i : insertableValues) {
+            if(i==amount) {
+            	contains = true;
+            }
+        }
+		if(contains) {
+			change += amount;
+			System.out.println("\n----- " + getBalance() + " kr inserted -----\n");
+		}
+		else {
+			System.out.println("Can only add the mentioned values!");
+		}
 	}
 
 	public int getBalance() {
@@ -31,15 +47,16 @@ public class ActualVendingMachine implements VendingMachine {
 	}
 	
 	public Product request(int productNumber) {
-		if(change<Integer.parseInt(test[productNumber].cost)) {
+		if(change<Integer.parseInt(products[productNumber].cost)) {
 			System.out.println("You haven't inserted enough money for that item");
 		}
 		else { 
-			change -= Integer.parseInt(test[productNumber].cost);
-			System.out.println("You buy a " + test[productNumber].name);
-			System.out.println("Remaining balance is: " + getBalance());
+			change -= Integer.parseInt(products[productNumber].cost);
+			System.out.println("\nYou buy a " + products[productNumber].name);
+			boughtProducts.add(products[productNumber]);
+			System.out.println("Remaining balance is: " + getBalance() + " kr\n");
 		}
-		return test[productNumber];
+		return products[productNumber];
 	}
 
 	public int endSession() {
@@ -50,11 +67,16 @@ public class ActualVendingMachine implements VendingMachine {
 	}
 
 	public String getDescription(int productNumber) {
-		return test[productNumber].examine();
+		int i=0;
+		while(i<products.length) {
+			System.out.println(i+1 + ": " + products[i].examine());
+			i++;
+		}
+		return products[productNumber].examine();
 	}
 
 	public String[] getProducts() {
-		String[] stringArr = new String[test.length];
+		String[] stringArr = new String[products.length];
 		for(int i=0; i<1; i++) {
 			stringArr[i] = getDescription(i);
 		}
