@@ -2,7 +2,7 @@ package se.ec.jonatan.third_app;
 
 import java.util.*;
 
-public class ActualVendingMachine implements VendingMachine {
+public class VendingMachineClass implements VendingMachine {
 	protected int[] insertableValues;
 	private int change;
 	private Product soda;
@@ -12,7 +12,7 @@ public class ActualVendingMachine implements VendingMachine {
 	protected boolean keepBuying;
 	protected ArrayList<Product> boughtProducts;
 	
-	public ActualVendingMachine() {
+	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		change = 0;
 		soda = new FoodItem("Coke", "20");

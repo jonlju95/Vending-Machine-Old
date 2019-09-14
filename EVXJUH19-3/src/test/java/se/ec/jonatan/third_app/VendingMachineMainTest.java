@@ -6,12 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class VendingMachineMainTest extends VendingMachineMain{
-	ActualVendingMachine testMachine;
+	VendingMachineClass testMachine;
 	VendingMachineMain testMainMachine;
 	
 	@BeforeEach
 	void setUp() {
-		testMachine = new ActualVendingMachine();
+		testMachine = new VendingMachineClass();
 	}
 	
 	@Test

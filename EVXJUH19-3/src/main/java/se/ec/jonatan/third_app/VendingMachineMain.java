@@ -3,8 +3,9 @@ package se.ec.jonatan.third_app;
 import java.util.*;
 
 public class VendingMachineMain {
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
-		ActualVendingMachine machine = new ActualVendingMachine();
+		VendingMachineClass machine = new VendingMachineClass();
 		Scanner in = new Scanner(System.in);
 		int option;
 		System.out.println("Welcome! ");
