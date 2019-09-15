@@ -15,9 +15,9 @@ public class VendingMachineClass implements VendingMachine {
 	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		change = 0;
-		soda = new FoodItem("Coke", "20");
-		chips = new FoodItem("OLW", "60");
-		chocolate = new FoodItem("Marabou", "140");
+		soda = new FoodItem("Coke", "20", "no allergens", "100 calories/litre");
+		chips = new FoodItem("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
+		chocolate = new FoodItem("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
 		products = new Product[3];
 		products[0] = soda;
 		products[1] = chips;
@@ -67,20 +67,14 @@ public class VendingMachineClass implements VendingMachine {
 	}
 
 	public String getDescription(int productNumber) {
-		int i=0;
-		while(i<products.length) {
-			System.out.println(i+1 + ": " + products[i].examine());
-			i++;
-		}
-		return products[productNumber].examine();
+		return getProducts()[productNumber];
 	}
 
 	public String[] getProducts() {
 		String[] stringArr = new String[products.length];
-		for(int i=0; i<1; i++) {
-			stringArr[i] = getDescription(i);
+		for(int i=0; i<products.length; i++) {
+			stringArr[i] = products[i].examine();
 		}
 		return stringArr;
 	}
-
 }
