@@ -24,7 +24,7 @@ public class VendingMachineMain {
 				case 2:
 					System.out.println();
 					for(int i=0; i<machine.products.length; i++) {
-						System.out.println(i+1 + ": " + machine.products[i].name + ", " + machine.products[i].cost + " kr");
+						System.out.println(i+1 + ": " + machine.products[i].getName() + ", " + machine.products[i].getCost() + " kr");
 					}
 					System.out.print("Selection: ");
 					int item = Integer.parseInt(in.nextLine())-1;
@@ -61,7 +61,7 @@ public class VendingMachineMain {
 						continue;
 					}
 					else {
-						System.out.println(count + ": " + machine.boughtProducts.get(i).name);
+						System.out.println(count + ": " + machine.boughtProducts.get(i).getName());
 					}
 					count++;
 				}
@@ -74,7 +74,7 @@ public class VendingMachineMain {
 			in.close();
 			System.out.println("\nYou bought: ");
 			for(int i=0; i<machine.boughtProducts.size(); i++) {
-				System.out.println(machine.boughtProducts.get(i).name);
+				System.out.println(machine.boughtProducts.get(i).getName());
 			}
 		}
 	}

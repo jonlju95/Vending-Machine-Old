@@ -15,9 +15,9 @@ public class VendingMachineClass implements VendingMachine {
 	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		change = 0;
-		soda = new FoodItem("Coke", "20", "no allergens", "100 calories/litre");
-		chips = new FoodItem("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
-		chocolate = new FoodItem("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
+		soda = new Soda("Coke", "20", "no allergens", "100 calories/litre");
+		chips = new Chips("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
+		chocolate = new Candy("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
 		products = new Product[3];
 		products[0] = soda;
 		products[1] = chips;
@@ -47,12 +47,12 @@ public class VendingMachineClass implements VendingMachine {
 	}
 	
 	public Product request(int productNumber) {
-		if(change<Integer.parseInt(products[productNumber].cost)) {
+		if(change<Integer.parseInt(products[productNumber].getCost())) {
 			System.out.println("You haven't inserted enough money for that item");
 		}
 		else { 
-			change -= Integer.parseInt(products[productNumber].cost);
-			System.out.println("\nYou buy a " + products[productNumber].name);
+			change -= Integer.parseInt(products[productNumber].getCost());
+			System.out.println("\nYou buy a " + products[productNumber].getName());
 			boughtProducts.add(products[productNumber]);
 			System.out.println("Remaining balance is: " + getBalance() + " kr\n");
 		}

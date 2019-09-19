@@ -1,18 +1,45 @@
 package se.ec.jonatan.third_app;
 
 public abstract class Product {
-	protected String name;
-	protected String cost;
-	protected String allergen;
-	protected String calory;
+	private String name;
+	private String cost;
+	private String allergen;
+	private String calory;
 	
-	public Product(String productName, String productCost, String allergens, String calories) {
+	public Product() {}
+	
+	public void setName(String productName) {
 		name = productName;
-		cost = productCost;
-		allergen = allergens;
-		calory = calories;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setCost(String productCost) {
+		cost = productCost;
+	}
+	
+	public String getCost() {
+		return cost;
+	}
+	
+	public void setAllergens(String productAllergen) {
+		allergen = productAllergen;
+	}
+	
+	public String getAllergens() {
+		return allergen;
+	}
+	
+	public void setCalories(String productCalory) {
+		calory = productCalory;
+	}
+	
+	public String getCalories() {
+		return calory;
+	}
+
 	public String examine() {
 		StringBuilder temp = new StringBuilder();
 		temp.append(name + ", " + cost + " kr, " + allergen + ", " + calory);
