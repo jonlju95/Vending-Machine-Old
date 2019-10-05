@@ -6,7 +6,12 @@ public abstract class Product {
 	private String allergen;
 	private String calory;
 	
-	public Product() {}
+	public Product(String productName, String productCost, String productAllergens, String productCalories) {
+		name = productName;
+		cost = productCost;
+		allergen = productAllergens;
+		calory = productCalories;
+	}
 	
 	public void setName(String productName) {
 		name = productName;

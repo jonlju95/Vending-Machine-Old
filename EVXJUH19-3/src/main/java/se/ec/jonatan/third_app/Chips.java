@@ -1,11 +1,7 @@
 package se.ec.jonatan.third_app;
 
 public class Chips extends Product{
-	public Chips(String productName, String productCost, String productAllergen, String productCalories) {
-		super();
-		setName(productName);
-		setCost(productCost);
-		setAllergens(productAllergen);
-		setCalories(productCalories);
+	public Chips() {
+		super("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
 	}
 }

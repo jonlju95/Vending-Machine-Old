@@ -5,9 +5,9 @@ import java.util.*;
 public class VendingMachineClass implements VendingMachine {
 	protected int[] insertableValues;
 	private int change;
-	private Product soda;
-	private Product chips;
-	private Product chocolate;
+	private Soda soda;
+	private Chips chips;
+	private Candy chocolate;
 	protected Product[] products;
 	protected boolean keepBuying;
 	protected ArrayList<Product> boughtProducts;
@@ -15,9 +15,9 @@ public class VendingMachineClass implements VendingMachine {
 	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		change = 0;
-		soda = new Soda("Coke", "20", "no allergens", "100 calories/litre");
-		chips = new Chips("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
-		chocolate = new Candy("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
+		soda = new Soda();
+		chips = new Chips();
+		chocolate = new Candy();
 		products = new Product[3];
 		products[0] = soda;
 		products[1] = chips;
