@@ -14,7 +14,7 @@ public class VendingMachineClass implements VendingMachine {
 	
 	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
-		change = 0;
+		boughtProducts = new ArrayList<Product>();
 		soda = new Soda("Coke", "20", "no allergens", "100 calories/litre");
 		chips = new Chips("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
 		chocolate = new Candy("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
@@ -23,7 +23,7 @@ public class VendingMachineClass implements VendingMachine {
 		products[1] = chips;
 		products[2] = chocolate;
 		keepBuying = true;
-		boughtProducts = new ArrayList<Product>();
+		change = 0;
 	}
 	
 	public void addCurrency(int amount) {
