@@ -15,9 +15,9 @@ public class VendingMachineClass implements VendingMachine {
 	public VendingMachineClass() {
 		insertableValues = new int[] {1, 5, 10, 20, 50, 100, 500, 1000};
 		change = 0;
-		soda = new Soda();
-		chips = new Chips();
-		chocolate = new Candy();
+		soda = new Soda("Coke", "20", "no allergens", "100 calories/litre");
+		chips = new Chips("Chips", "60", "can contain traces of lactose" , "300 calories/100g");
+		chocolate = new Candy("Chocolate", "140", "can contain traces of nuts", "150 calories/200g");
 		products = new Product[3];
 		products[0] = soda;
 		products[1] = chips;
